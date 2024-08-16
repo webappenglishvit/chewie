@@ -16,10 +16,16 @@ import 'package:video_player/video_player.dart';
 
 class MaterialControls extends StatefulWidget {
   const MaterialControls({
+    this.barHeight = 10,
+    this.handleHeight = 6,
+    this.drawShadow = true,
     this.showPlayButton = true,
     super.key,
   });
 
+  final double barHeight;
+  final double handleHeight;
+  final bool drawShadow;
   final bool showPlayButton;
 
   @override
@@ -592,6 +598,9 @@ class _MaterialControlsState extends State<MaterialControls>
     return Expanded(
       child: MaterialVideoProgressBar(
         controller,
+        barHeight: widget.barHeight,
+        handleHeight: widget.handleHeight,
+        drawShadow: widget.drawShadow,
         onDragStart: () {
           setState(() {
             _dragging = true;
